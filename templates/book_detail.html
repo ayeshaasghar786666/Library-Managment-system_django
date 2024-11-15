@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Page background and text styles */
+        body {
+            background-image: url('https://i.pinimg.com/736x/56/e3/1c/56e31cbf6c07589fa58cf7691aaf3059.jpg'); /* Library-themed background */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Card styling */
+        .card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        /* Button container styling */
+        .button-container {
+            display: flex; /* Flexbox for horizontal alignment */
+            justify-content: center; /* Center buttons */
+            gap: 10px; /* Space between buttons */
+            margin-top: 20px; /* Margin on top of buttons */
+        }
+
+        /* Button styling */
+        .btn-primary, .btn-secondary {
+            padding: 10px 15px; /* Padding for buttons */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s;
+        }
+
+        .btn-secondary {
+            background-color: #5a6268;
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: #343a40;
+            transform: scale(1.05);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="alert alert-danger text-center mb-4">Ayesha's Book Detail Page</h1>
+        <div class="card text-white">
+            <div class="card-body text-center">
+                <h2 class="card-title">{{ book.title }}</h2>
+                <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
+                <p class="card-text"><strong>ISBN:</strong> {{ book.isbn }}</p>
+                <p class="card-text"><strong>Available Copies:</strong> {{ book.available_copies }}</p>
+                <p class="card-text"><strong>Published Date:</strong> {{ book.published_date }}</p>
+                
+                <!-- Button container for horizontal alignment -->
+                <div class="button-container">
+                    <!-- Edit button to go to the edit page -->
+                    <a href="{% url 'book_edit' book.id %}" class="btn btn-outline-primary shadow">Edit Book</a>
+                    
+                    <!-- Back button to go to the book list -->
+                    <a href="{% url 'book_list' %}" class="btn btn-outline-secondary shadow">Back to Book List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Member Detail</title>
+    <style>
+        /* Basic styling for a clean layout */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('https://i.pinimg.com/736x/56/e3/1c/56e31cbf6c07589fa58cf7691aaf3059.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.8); /* Black with slight transparency */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            max-width: 600px;
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+        .details {
+            margin-top: 20px;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #444;
+        }
+        .detail-label {
+            font-weight: bold;
+            color: #ccc;
+        }
+        .back-link {
+            display: inline-block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 20px; /* Padding for button shape */
+            background-color: #4CAF50; /* Green background */
+            color: #fff; /* White text color */
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .back-link:hover {
+            background-color: #45a049; /* Darker green on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Member Details</h1>
+    <div class="details">
+        <div class="detail-row">
+            <span class="detail-label">Name:</span>
+            <span>{{ member.name }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Email:</span>
+            <span>{{ member.email }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Membership Date:</span>
+            <span>{{ member.membership_date }}</span>
+        </div>
+    </div>
+    <a href="{% url 'member_list' %}" class="back-link">Go to Member List</a>
+</div>
+</body>
+</html>
